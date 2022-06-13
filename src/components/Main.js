@@ -1,9 +1,8 @@
 import {React, useState, useEffect} from 'react'
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { signOut } from 'firebase/auth';
 import {db,auth} from './firebase-config'
-import currentUser from './SignIn'
-import { Link, useHistory, Switch, Redirect, Router,Navigate} from 'react-router-dom';
-import SignIn from './SignIn';
+import { Link,Navigate} from 'react-router-dom';
+
 import { motion } from 'framer-motion';
 import { collection, query, orderBy, limit, onSnapshot, getDocs, doc, where, addDoc, deleteDoc} from 'firebase/firestore'
 import firebase from 'firebase/compat/app';
@@ -12,12 +11,7 @@ import 'firebase/compat/firestore';
 
 export const Main = () => {
   const [user, setUser] = useState({});
-  const[logInEmail, setLogInEmail] = useState('');
-  const[logInPass, setLogInPass] = useState('');
-  const[error, setError] = useState('');
-
   const [userID, setUserID] = useState({});
-  const [delMSG, setDelMSG] = useState({});
   const[messages, setMessages] = useState([]);
 
   const[sendingMSG, setSendingMsg] = useState([]);
@@ -40,17 +34,8 @@ export const Main = () => {
                 })
               })
               console.log(userID);
-            const querySnapshot =  await getDocs(q);
-          //  const data = querySnapshot.docs.map((doc)=> ({
-          //     ...doc.data(),
-          //     i:doc.id
-              
-          //   }))
-            
-
-            ;
-           
-            //console.log(data)
+              await getDocs(q);
+    
             
 
           }
@@ -59,26 +44,7 @@ export const Main = () => {
 },[user]
 )
  
-  const msgInfo = async() =>{
-   
-    
-  //   const q =  query(collection(db,'messages'), limit(50) , where("uid", "==", user.uid))
-  //     console.log(userID);
-  //   const querySnapshot =  await getDocs(q);
-  //  const data = querySnapshot.docs.map((doc)=> ({
-  //     // setMessages(doc.id, " => ", doc.data())
-  //     ...doc.data(),
-  //     id:doc.id
-  //   }));
-  //   //console.log(data)
-  //   setMessages(data);
-  };
- 
   
-
-    useEffect(()=>{
-        msgInfo();
-    }, []);
   
 
 
@@ -112,12 +78,7 @@ export const Main = () => {
         uid:uid,
         createdAt: firebase.firestore.FieldValue.serverTimestamp()
   })
-   // await db.collection('messages').add({
-   //     message: sendingMSG,
-   //     uid,
-   //     createdAt: firebase.firestore.FieldValue.serverTimestamp()
-
-   // })   
+   
    setSendingMsg('');
 
     }

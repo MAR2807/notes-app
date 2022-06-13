@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react'
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {auth} from './firebase-config'
-import { Link} from 'react-router-dom';
+import { Link, Navigate} from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const SignUp = () => {
@@ -56,7 +56,9 @@ const SignUp = () => {
   
     return (
         <motion.div initial={{opacity:0}} animate={{opacity:1}}  exit={{opacity:0}} transition={{duration:1}}>
-           
+
+        {auth.currentUser? <div className = "alreadySignedIn"> <p> you are already signed in <Navigate to="/Main"></Navigate></p> </div>  :
+
         <div initial={{opacity:0}} animate={{opacity:1}}  exit={{opacity:0}} transition={{duration:1}} className='authContainer'> 
         
             <motion.h1  initial={{scale:2}} animate={{scale:1}} transition={{duration:1}} className='signUp'> Sign Up</motion.h1> 
@@ -67,22 +69,24 @@ const SignUp = () => {
 
              
     
-           <Link to ="/SignIn"> <button className='submit' type='submit' onClick={register} > sign up  </button>  </Link>
+           <Link to ="/authenticate2"> <button className='submit' type='submit' onClick={register} > sign up  </button>  </Link>
             <p className='error-info'>{error}</p>
             
-
+            
            
             
            
             
     
         </div>
-        
+        }
 
         <div className='signUpPrompt'> <h1 className='signUpPrompt'> Already have an account? Click <Link to="/SignIn"><button className="signUpPrompt"> here </button> </Link>  to sign in!</h1> </div>
-
-    
+        
+        <div className='title-n'> <h1 className='title-n'> Welcome to Note-ify.</h1> </div>
         </motion.div>
+
+        
       )
   
 }

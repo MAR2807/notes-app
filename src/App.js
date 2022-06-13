@@ -45,7 +45,7 @@ function App() {
                 {/* <Navigate to="/SignIn"/> */}
                   
                 </Route>
-                <Route exact path = "/authenticate2" element={auth.currentUser ? <Navigate to ="/Main" /> : <SignUp/> }>
+                <Route exact path = "/authenticate2" element={auth.currentUser ? <Main /> : <SignUp/> }>
                 {/* <Navigate to="/SignIn"/> */}
                   
                 </Route>

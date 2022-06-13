@@ -330,7 +330,6 @@ div.mt2{
   position: absolute;
   left:60px;
   top:2px;
-  
   width:800px;
  }
  div.signUpPrompt{
@@ -353,4 +352,13 @@ button.signUpPrompt{
   border-radius: 5px;
   background: linear-gradient(to bottom, #1CB5E0, #030370); 
   color:white;
+}
+div.title-n{
+  position: absolute;
+  left:37.5%;
+  top:5%;
+  font-family: 'Questrial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
 }
