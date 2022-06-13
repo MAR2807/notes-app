@@ -1,7 +1,7 @@
 import {React, useState, useEffect} from 'react'
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import {auth} from './firebase-config'
-import { Link, Navigate} from 'react-router-dom';
+import { Link} from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const SignUp = () => {
@@ -10,8 +10,8 @@ const SignUp = () => {
     const[registerEmail, setRegisterEmail] = useState('');
     const[registerPass, setRegisterPass] = useState('');
 
-    const[logInEmail, setLogInEmail] = useState('');
-    const[logInPass, setLogInPass] = useState('');
+    
+    
 
     const [user, setUser] = useState({});
     
