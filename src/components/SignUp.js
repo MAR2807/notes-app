@@ -17,7 +17,7 @@ const SignUp = () => {
     
     const[error, setError] = useState('');
 
-    const[success, setSuccess] = useState('');
+    
 
 
 
@@ -39,8 +39,8 @@ const SignUp = () => {
     const register = async ()=>{
         setError('');
         try{
-            const user = await createUserWithEmailAndPassword(auth, registerEmail, registerPass);
-            console.log(user);setSuccess("Successfully created account");
+            await createUserWithEmailAndPassword(auth, registerEmail, registerPass);
+            
         }
         catch(error){ console.log(error.message)
             setError(error.message)
@@ -48,6 +48,7 @@ const SignUp = () => {
        
        
     };
+    
 
 
    
@@ -66,8 +67,7 @@ const SignUp = () => {
 
              
     
-            <button className='submit' type='submit' onClick={register} > sign up  </button>
-            <h4 className='user-info'>  {success}</h4>
+           <Link to ="/SignIn"> <button className='submit' type='submit' onClick={register} > sign up  </button>  </Link>
             <p className='error-info'>{error}</p>
             
 

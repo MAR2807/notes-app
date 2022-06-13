@@ -2,21 +2,20 @@
 import './App.css';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import { AnimatePresence } from 'framer-motion';
-import Auth from './components/SignUp';
+
 import SignIn from './components/SignIn'
 import SignUp from './components/SignUp'
-import {React, useState, useEffect} from 'react'
+import {React} from 'react'
 import { Main } from './components/Main';
-import {BrowserRouter as Router, Route, Routes, Link, Navigate} from 'react-router-dom';
-import { useLocation } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes, Navigate} from 'react-router-dom';
+
 import { auth } from './components/firebase-config';
 
 
 
 
 function App() {
-  const [user, setUser] = useState({});
-   const [userSignedIn] = useState(false);
+
   
   return (
   <Router>
@@ -43,6 +42,10 @@ function App() {
                 </Route>
 
                 <Route exact path = "/authenticate" element={auth.currentUser ? <Navigate to ="/Main" /> : <SignIn/> }>
+                {/* <Navigate to="/SignIn"/> */}
+                  
+                </Route>
+                <Route exact path = "/authenticate2" element={auth.currentUser ? <Navigate to ="/Main" /> : <SignUp/> }>
                 {/* <Navigate to="/SignIn"/> */}
                   
                 </Route>

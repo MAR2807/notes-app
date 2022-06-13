@@ -300,7 +300,7 @@ div.buttonContainer{
   left:0px;
   height:40px;
   width:100px;
-  background-color: gr;
+  
 
 }
 div.mt2{
@@ -330,6 +330,8 @@ div.mt2{
   position: absolute;
   left:60px;
   top:2px;
+  
+  width:800px;
  }
  div.signUpPrompt{
   position:absolute;
