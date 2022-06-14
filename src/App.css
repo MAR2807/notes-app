@@ -107,16 +107,16 @@ div.authContainer223{
   max-width:1000px;
 
 }
-@media(max-width:1919px){
+@media(max-width:1900px){
   div.authContainer223{
 
     position: absolute;
     top:5%;
     left:30%;
     width:800px;
-    height:600px;
+    height:600;
     border-radius: 10px;
- 
+    background-color: white;
     min-width: 400px;
     min-height: 300px;
     padding: 40px;

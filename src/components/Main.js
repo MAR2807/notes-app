@@ -155,7 +155,7 @@ console.log(id)
 
                 
                       
-                      <div className='title'> <h1> Notes1342: </h1> </div>
+                      <div className='title'> <h1> Notes: </h1> </div>
                     <div className="users_info"> 
                           <p className='info-head'> User info: </p>
                           <p className='email'> {auth.currentUser?.email} </p> 
