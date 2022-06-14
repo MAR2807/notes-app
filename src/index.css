@@ -317,6 +317,7 @@ div.mt2{
   border:2px solid black;
   
 }
+
 .buttonDisplay{
   color:black;
    width:100px;
@@ -465,5 +466,28 @@ div.title-n{
     color:black;
     
     
+}
+div.signUpPrompt{
+  position:absolute;
+  left:40px;
+  top:20px;
+  width:300px;
+  height:60px;
+  background-color: white;
+  border-radius: 10px;
+  padding-top:10px;
+  padding-left:20px;
+  box-shadow:2px 2px 2px 2px;
+  
+ }
+
+ div.title-n{
+  position: absolute;
+  left:20%;
+  top:13%;
+  font-family: 'Questrial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+ 
 }
 }

@@ -59,7 +59,7 @@ const SignUp = () => {
 
         {auth.currentUser? <div className = "alreadySignedIn"> <p> you are already signed in <Navigate to="/Main"></Navigate></p> </div>  :
 
-        <div initial={{opacity:0}} animate={{opacity:1}}  exit={{opacity:0}} transition={{duration:1}} className='authContainer'> 
+        <div initial={{opacity:0}} animate={{opacity:1}}  exit={{opacity:0}} transition={{duration:1}} className='authContainer1'> 
         
             <motion.h1  initial={{scale:2}} animate={{scale:1}} transition={{duration:1}} className='signUp'> Sign Up</motion.h1> 
           

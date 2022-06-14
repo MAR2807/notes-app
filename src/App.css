@@ -124,3 +124,24 @@ div.authContainer223{
   }
 }
 
+  @media(max-width:600px){
+
+    div.authContainer1{
+      background-color:white;
+      position: absolute;
+      top:20%;
+      left:10%;
+      width:300px;
+      height:200px;
+      border-radius: 10px;
+      box-shadow: 8px 8px 8px ;
+      min-width: 400px;
+      min-height: 300px;
+      padding: 40px;
+      max-width:500px;
+     
+      
+    }
+ 
+}
+
