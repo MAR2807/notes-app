@@ -97,8 +97,8 @@ div.authContainer223{
   position: absolute;
   top:5%;
   left:30%;
-  width:100%;
-  height:80%;
+  width:1000px;
+  height:800px;
   border-radius: 10px;
   
   min-width: 400px;
@@ -107,4 +107,5 @@ div.authContainer223{
   max-width:1000px;
 
 }
+@media(max-width:1000px)
 
