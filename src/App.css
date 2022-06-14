@@ -97,33 +97,14 @@ div.authContainer223{
   position: absolute;
   top:5%;
   left:30%;
-  width:1000px;
-  height:800px;
+  width:100%;
+  height:80%;
   border-radius: 10px;
   
   min-width: 400px;
   min-height: 300px;
   padding: 40px;
   max-width:1000px;
-
-}
-@media (min-width:1000px){
-
-  div.authContainer223{
-
-    position: absolute;
-    top:5%;
-    left:30%;
-    width:400;
-    height:200;
-    border-radius: 10px;
-    
-    min-width: 400px;
-    min-height: 300px;
-    padding: 40px;
-    max-width:1000px;
-  
-  }
 
 }
 
