@@ -410,3 +410,50 @@ div.title-n{
     padding:20px;
   }
 }
+@media (max-width:600px){
+  div.mt2{
+    position:absolute;
+    top:10%;
+    left:25%;
+    overflow: auto;
+    height:200px;
+    width:300px;
+    background-color:white;
+    border-radius: 10px;
+    border:1px solid black;
+    
+  }
+  div.users_info{
+    position:absolute;
+    right:80%;
+    top:15%;
+    height:150px;
+    background-color: white;
+    width:300px;
+    border-radius: 10px;
+    color: black;
+    box-shadow: 8px 8px 8px;
+    padding:20px;
+    font-family: 'Questrial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  .msgInput{
+    position:absolute;
+    top:75%;
+    left:5%;
+  }
+  .title{
+    position: absolute;
+    bottom:100%;
+    left:25%;
+    font-family: 'Questrial', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: white;
+    border-radius: 10px;
+    width:300px;
+    box-shadow: 4px 4px 4px 4px;
+    padding:20px;
+  }
+}
