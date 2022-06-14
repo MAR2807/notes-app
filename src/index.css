@@ -491,3 +491,9 @@ div.signUpPrompt{
  
 }
 }
+div.userNotice{
+    position:absolute;
+    top:30%;
+    left:10%;
+    color:black;
+}

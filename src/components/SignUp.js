@@ -62,8 +62,10 @@ const SignUp = () => {
         <div initial={{opacity:0}} animate={{opacity:1}}  exit={{opacity:0}} transition={{duration:1}} className='authContainer1'> 
         
             <motion.h1  initial={{scale:2}} animate={{scale:1}} transition={{duration:1}} className='signUp'> Sign Up</motion.h1> 
+            
           
-             <input className='user' type = "text" name ="user" placeholder='Username' onChange={(e)=>{setRegisterEmail(e.target.value)}} />   
+             <input className='user' type = "text" name ="user" placeholder='Username' onChange={(e)=>{setRegisterEmail(e.target.value)}} />  
+             <div className='userNotice'><p> *Username must be an email</p> </div>
            
              <input className='pass' type = "text" name ="pass" placeholder='Password'  onChange={(e)=>{setRegisterPass(e.target.value)}} />  
 
