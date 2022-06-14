@@ -391,5 +391,9 @@ div.title-n{
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
+  .msgInput{
+    position:absolute;
+    top:80%;
+    left:15%;
+  }
 }
