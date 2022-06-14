@@ -368,10 +368,9 @@ div.title-n{
   div.mt2{
     position:absolute;
     top:110px;
-    
     overflow: auto;
     height:500px;
-    width:800px;
+    width:1000px;
     background-color:white;
     border-radius: 20px;
     border:2px solid black;
