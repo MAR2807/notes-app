@@ -162,8 +162,8 @@ button.signOutButton:hover{
 }
 div.signOutButton{
   position:absolute;
-  right:1300px;
-  top:285px;
+  right:100px;
+  top:200;
   z-index: 1;
   
 }

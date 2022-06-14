@@ -117,7 +117,7 @@ console.log(id)
               <div> 
 
               
-                <div className='signOutButton'> <Link to="/SignIn" > <button className='signOutButton' type='submit' onClick={logout} > sign out</button> </Link> </div> 
+                
              
 
                  <div className='user-info-1'> 
@@ -159,6 +159,7 @@ console.log(id)
                     <div className="users_info"> 
                           <p className='info-head'> User info: </p>
                           <p className='email'> {auth.currentUser?.email} </p> 
+                          <div className='signOutButton'> <Link to="/SignIn" > <button className='signOutButton' type='submit' onClick={logout} > sign out</button> </Link> </div> 
 
                      </div>
 
