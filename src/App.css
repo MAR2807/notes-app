@@ -130,12 +130,12 @@ div.authContainer223{
       background-color:white;
       position: absolute;
       top:20%;
-      left:10%;
-      width:300px;
-      height:200px;
+      left:25%;
+      width:200px;
+      height:300px;
       border-radius: 10px;
       box-shadow: 8px 8px 8px ;
-      min-width: 400px;
+      min-width: 200px;
       min-height: 300px;
       padding: 40px;
       max-width:500px;
