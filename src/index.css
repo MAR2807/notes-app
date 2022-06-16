@@ -197,7 +197,7 @@ input.msgInput{
 }
 button.msgInput{
  position: absolute;
- top:60px;
+ top:80%;
  left:500px;
  width:100px;
  border-radius: 20px;
