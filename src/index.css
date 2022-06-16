@@ -196,9 +196,7 @@ input.msgInput{
   box-shadow: 8px 8px 8px;
 }
 button.msgInput{
- position: absolute;
- top:80%;
- left:500px;
+ position: relative;
  width:100px;
  border-radius: 20px;
  box-shadow: 8px 8px 8px;
