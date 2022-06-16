@@ -26,7 +26,7 @@ function App() {
               
               <AnimatePresence exitBeforeEnter>
               <Routes >
-                <Route exact path = "/" element={<Navigate to="/SignIn" />}>
+                <Route exact path = "/" element={<SignIn />}>
                   
                   </Route>
                 <Route  exact path = "/Main"  element={ <Main />}>
