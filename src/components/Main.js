@@ -1,4 +1,4 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState, useEffect, ImageBackground} from 'react'
 import { signOut } from 'firebase/auth';
 import {db,auth} from './firebase-config'
 import { Link,Navigate} from 'react-router-dom';
@@ -8,6 +8,7 @@ import { collection, query, orderBy, limit, onSnapshot, getDocs, doc, where, add
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
+import space from './images/space.gif';
 
 export const Main = () => {
   const [user, setUser] = useState({});
@@ -107,7 +108,9 @@ console.log(id)
   return (
 
     
+    
 
+    
   
             <div className = "authContainer223">
             
@@ -155,7 +158,7 @@ console.log(id)
 
                 
                       
-                      <div className='title'> <h1> Notes: </h1> </div>
+                     
                     <div className="users_info"> 
                           <p className='info-head'> User info: </p>
                           <p className='email'> {auth.currentUser?.email} </p> 
@@ -200,9 +203,9 @@ console.log(id)
 
 
               </div>
-             
+              
             </div>
-
+            
             
   
   )

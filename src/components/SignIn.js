@@ -1,8 +1,9 @@
-import {React, useState, useEffect} from 'react'
+import {React, useState, useEffect} from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import {auth} from './firebase-config';
 import { Link, Navigate} from 'react-router-dom';
 import { motion } from 'framer-motion';
+import space from './images/space.gif';
 
 const SignIn = () => {
 
@@ -56,10 +57,14 @@ const SignIn = () => {
 
   
     return (
-        
+
+      
+       
         < motion.div initial={{opacity:0}} animate={{opacity:1}}  exit={{opacity:0}} transition={{duration:1}}>
+              
         {auth.currentUser? <div className = "alreadySignedIn"> <p> you are already signed in, click <Navigate to="/Main"> here </Navigate> to go back</p> </div>  :
-        <div className='authContainer1'>    
+          
+         <div className='authContainer1'>  
         
              <motion.h1 initial={{scale:2}} animate={{scale:1}} transition={{duration:1}}  className='signUp'> Sign In</motion.h1> 
         
@@ -74,7 +79,7 @@ const SignIn = () => {
             <p className='error-info'>{error}</p>
             
             </div>
-            
+           
             
             
             }
@@ -86,9 +91,10 @@ const SignIn = () => {
         
 
     
-       
+        
       )
   
 }
+
 
 export default SignIn
