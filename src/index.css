@@ -201,17 +201,29 @@ input.msgInput{
   text-align: left;
   padding-left:20px;
   width:400px;
-  border-radius: 20px;
+  border-radius: 10px;
   border:2px solid black;
   top:60px;
   left:100px;
   box-shadow: 8px 8px 8px;
+  background-color: orange;
 }
 button.msgInput{
  position: relative;
  width:100px;
- border-radius: 20px;
+ border-radius: 10px;
  box-shadow: 8px 8px 8px;
+ background-color: orange;
+}
+button.msgInput:hover{
+  border:1px solid white;
+}
+p.msgInput{
+  height: 10px;
+}
+p.msgInput:hover{
+  color: white;
+  
 }
 .infoHead{
   position: absolute;
@@ -256,10 +268,13 @@ button.msgInput{
   background:transparent;
 }
 button.deleteButton{
-  width:50px;
-  height:25px;
-  border-radius:5px;
+  background:transparent;
   
+  
+  
+}
+img.delIcon{
+ width:25px;
 
   
 }
@@ -304,6 +319,7 @@ div.deleteButton{
   right:10px;
   font-size:small;
 
+
  
 }
 div.buttonContainer{
@@ -342,7 +358,7 @@ div.mt2{
  .buttonmsg1{
   position: absolute;
   left:60px;
-  top:2px;
+  top:5px;
   width:800px;
   color:orange;
  }
@@ -403,31 +419,36 @@ div.title-n{
     
   }
 }
-@media (max-width:600px){
+@media (max-width:1000px) and (min-width:600px){
   div.mt2{
-    position:absolute;
-    top:10%;
-    left:20%;
-    overflow: auto;
-    height:200px;
-    width:300px;
- 
-    
+    width:400px;
   }
   div.users_info{
-
-   position: absolute;
-   left:200px;
-    top:-20%;
-    height:150px;
-    width:300px;
- 
-
+    width:400px;
+    position: relative;
+    left:-100px;
   }
   div.msgInput{
-    position:absolute;
-    top:75%;
-    left:5%;
+    position: absolute;
+    left:-120px;
+    top:600px;
+
+  }
+}
+@media (max-width:600px){
+  div.mt2{
+    width:300px;
+  }
+  div.users_info{
+    width:300px;
+    position: relative;
+    left:-100px;
+  }
+  div.msgInput{
+    position: absolute;
+    left:-100px;
+    top:600px;
+
   }
   .title{
     position: absolute;
@@ -460,7 +481,12 @@ div.signUpPrompt{
   height:50px;
   
  }
-
+input.msgInput{
+  width:220px;
+}
+button.msgInput{
+  width:75px;
+}
  div.title-n{
   position: absolute;
   left:15%;

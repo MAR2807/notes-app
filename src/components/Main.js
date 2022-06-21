@@ -1,14 +1,15 @@
 import {React, useState, useEffect, ImageBackground} from 'react'
 import { signOut } from 'firebase/auth';
-import {db,auth} from './firebase-config'
+import {db,auth} from './firebase-config';
 import { Link,Navigate} from 'react-router-dom';
 
 import { motion } from 'framer-motion';
-import { collection, query, orderBy, limit, onSnapshot, getDocs, doc, where, addDoc, deleteDoc} from 'firebase/firestore'
+import { collection, query, orderBy, limit, onSnapshot, getDocs, doc, where, addDoc, deleteDoc} from 'firebase/firestore';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
+import del from './images/delete.jpg';
 import 'firebase/compat/firestore';
-import space from './images/space.gif';
+
 
 export const Main = () => {
   const [user, setUser] = useState({});
@@ -134,7 +135,7 @@ console.log(id)
                        
                        <div key={id} className='buttonContainer'> 
                           <div  className="deleteButton">  
-                            <button value = {id} onClick={() => deleteMSG(id)} className="deleteButton"> delete </button> 
+                            <button value = {id} onClick={() => deleteMSG(id)} className="deleteButton"> <img className='delIcon' src={del}/> </button> 
                             <p className='buttonmsg1'>{message}</p> 
                           </div>
 
@@ -178,7 +179,7 @@ console.log(id)
 
                       
                       <input className ='msgInput' type ='text' placeholder='enter message here' value = {sendingMSG} maxLength="80" onChange={e => setSendingMsg(e.target.value)}/> 
-                      <button className='msgInput'> Send </button>
+                      <button className='msgInput'> <p className='msgInput'>Send</p> </button>
 
                       </form>
 
