@@ -71,10 +71,10 @@ const SignUp = () => {
 
              
     
-           <Link to ="/authenticate2"> <button className='submit' type='submit' onClick={register} > sign up  </button>  </Link>
+             <div className='signup'><Link style={{textDecoration :'none'}} to ="/authenticate2"> <button className='button-30' type='submit' onClick={register} > sign up  </button>  </Link></div>
             <p className='error-info'>{error}</p>
             
-            
+            <div className='signInPrompt'> <h1 className='signUpPrompt'> Already have an account? Click <Link to="/SignIn"><button className="signUpPrompt"> here </button> </Link>  to sign in!</h1> </div>
            
             
            
@@ -83,7 +83,7 @@ const SignUp = () => {
         </div>
         }
 
-        <div className='signUpPrompt'> <h1 className='signUpPrompt'> Already have an account? Click <Link to="/SignIn"><button className="signUpPrompt"> here </button> </Link>  to sign in!</h1> </div>
+        
         
         <div className='title-n'> <h1 className='title-n'> Welcome to Note-ify.</h1> </div>
         </motion.div>

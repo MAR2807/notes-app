@@ -1,10 +1,10 @@
-import {React, useState, useEffect, ImageBackground} from 'react'
+import {React, useState, useEffect} from 'react'
 import { signOut } from 'firebase/auth';
 import {db,auth} from './firebase-config';
 import { Link,Navigate} from 'react-router-dom';
 
 import { motion } from 'framer-motion';
-import { collection, query, orderBy, limit, onSnapshot, getDocs, doc, where, addDoc, deleteDoc} from 'firebase/firestore';
+import { collection, query, orderBy, limit, onSnapshot, getDocs, doc, where, addDoc, deleteDoc, updateDoc} from 'firebase/firestore';
 import firebase from 'firebase/compat/app';
 import 'firebase/compat/auth';
 import del from './images/delete.jpg';
@@ -15,29 +15,48 @@ export const Main = () => {
   const [user, setUser] = useState({});
   const [userID, setUserID] = useState({});
   const[messages, setMessages] = useState([]);
-
   const[sendingMSG, setSendingMsg] = useState([]);
+  const[updatedMSG, setUpdatedMsg] = useState([]);
+  const[modalStatus, setModalStatus] = useState(false);
+  const[modalId, setModalId] = useState([]);
+  const[overlayStatus, setOverlayStatus] = useState(true);
+  
+  
+  
+ 
+  
 
- // const user1 = auth.currentUser.uid;
+
  useEffect(()=>{
+
+
   auth.onAuthStateChanged(
       async(currentUser) => {
           if(user!= null){
               setUser(currentUser);
               setUserID(auth.currentUser.uid)
+          
               
-              const q =  query(collection(db,'messages'), limit(50) , orderBy('createdAt'), where("uid", "in", [auth.currentUser.uid])) //where("uid", "in", [auth.currentUser.uid])
+              const q =  query(collection(db,'messages'), limit(50) , orderBy('createdAt'), where("uid", "in", [auth.currentUser.uid])) 
               onSnapshot(q, (snapshot)=>{
-                let info =[]
+                let info =[];
+                setMessages(info);
+                
                 snapshot.docs.forEach((doc)=>{
                   info.push({...doc.data(), id:doc.id})
-                  setMessages(info);
+                    
+                      setMessages(info);
+                   
+                    
+                    
                 
                 })
+               
               })
-              console.log(userID);
+              
               await getDocs(q);
-    
+              
+             
             
 
           }
@@ -70,6 +89,8 @@ export const Main = () => {
     }
 
  async function sendMSG(e){
+  
+ console.log("send modal status" + " " + modalStatus);
    e.preventDefault();
    const {uid} = auth.currentUser
    var regExp = /[a-zA-Z]/g;
@@ -91,14 +112,111 @@ export const Main = () => {
 
 }
 
+
+const toggleModal = (modalStatus,id) => {
+
+
+  var show = document.getElementById('modal-1');
+  
+  
+ 
+  setModalId(id);
+  toggleOverlay(overlayStatus);
+ 
+ 
+if(modalStatus === true){
+  console.log(" if");
+  show.style.display='none';
+ 
+  setModalStatus(false);
+  toggleOverlay(overlayStatus);
+
+}
+else if (modalStatus === false){
+ console.log("else if");
+  show.style.display='block';
+  setModalStatus(true);
+  console.log(modalStatus);
+  toggleOverlay(overlayStatus);
+  
+}
+console.log(modalStatus);
+
+
+
+
+}
+
+const toggleOverlay = (overlayStatus) => {
+  var overlay = document.getElementById('overlay');
+
+  if(overlayStatus == false){
+  
+
+
+    overlay.style.display='none';
+    setOverlayStatus(true);
+  
+  }
+  else{
+    overlay.style.display='block';
+    
+    setOverlayStatus(false);
+
+    
+  }
+
+
+}
+
+const updateMSG = async (id, updatedMSG)=>{
+  toggleModal(modalStatus);
+  toggleOverlay(overlayStatus);
+  
+
+  if(updatedMSG === ""){
+    deleteMSG(id);
+    
+  }
+  else{
+    const userDoc = doc(db,"messages",id)
+    await updateDoc(userDoc,{
+      message: updatedMSG,
+  
+  })
+  }
+
+
+
+
+
+
+}
+
 const  deleteMSG = async (id) => {
   const userDoc = doc(db,"messages", id);
   await deleteDoc(userDoc)
-    
-    
+  
 
-console.log(id)
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -125,47 +243,69 @@ console.log(id)
              
 
                  <div className='user-info-1'> 
-                 <div className = "mt2" > 
+                       <div className="users_info"> 
+      
+                        <div className='signOutBTN'> 
+                        <h2> NOTES </h2>
+                        <Link style={{ textDecoration: 'none' }} to="/SignIn" > <button class="button-30" role="button" type='submit' onClick={logout} >sign out </button> </Link> 
+                        
+                        </div> 
+
+                        </div>   
+                 <div className = "mt2" >
+         
+
                 
-                { messages.map(({id, message}) =>(
+                {messages.map(({id, message}) =>(
                     <div key={id}>
                          
                       <div key={id} className='buttonDisplay'>
-                        
-                       
+
+                      
+                     
+
                        <div key={id} className='buttonContainer'> 
                           <div  className="deleteButton">  
-                            <button value = {id} onClick={() => deleteMSG(id)} className="deleteButton"> <img className='delIcon' src={del}/> </button> 
-                            <p className='buttonmsg1'>{message}</p> 
+                          
+                            <button value = {id} onClick={() => deleteMSG(id)} className="button-30"> <img className='delIcon' src={del}/> </button> 
+                            
+                            <p className='msg'>{message} </p> 
                           </div>
 
                          </div>
-
+                        <div className='editBTN'><button className='button-30' role="button" onClick={() => toggleModal(modalStatus,id)}> <p className='msgInput'>edit</p> </button> </div> 
                       </div>
+                      
+                     
+                    <div id='modal-1' >  
+                    
+                       <input className ='msgInput'  id="update" type ='text'  placeholder='enter edit message here' value = {updatedMSG} maxLength="80" onChange={e => setUpdatedMsg(e.target.value)}/> 
+              
+                       <div className='updateBTN'> <button className='button-30' id="update2" onClick={() => {updateMSG(modalId, updatedMSG)}}> <p className='msgInput'>update</p> </button> </div>
+                       
+                       
+                        
+                     
+                      
+                    </div> 
+                    
+
+                     
 
                     </div>
                          
-                        
-                    
-
-                 
-
-                  
                 
-                ))}
+                )) }
+
+                
                 </div>
 
     
 
                 
-                      
+                <div id='overlay' onClick={() => toggleModal(modalStatus,modalId)}>  </div>
                      
-                    <div className="users_info"> 
-                          <p className='info-head'> User info: </p>
-                          <p className='email'> {auth.currentUser?.email} </p> 
-                          <div className='signOutButton'> <Link to="/SignIn" > <button className='signOutButton' type='submit' onClick={logout} > sign out</button> </Link> </div> 
 
-                     </div>
 
                   
 
@@ -173,17 +313,19 @@ console.log(id)
                     
                     
 
-                    <div className='msgInput'>
+                      <div className='msgInput'>
 
-                      <form onSubmit={sendMSG}>
+                          <form onSubmit={sendMSG}>
 
-                      
-                      <input className ='msgInput' type ='text' placeholder='enter message here' value = {sendingMSG} maxLength="80" onChange={e => setSendingMsg(e.target.value)}/> 
-                      <button className='msgInput'> <p className='msgInput'>Send</p> </button>
+                              <input className ='msgInput' type ='text' placeholder='enter message here' value = {sendingMSG} maxLength="80" onChange={e => setSendingMsg(e.target.value)}/> 
+                              
+                              <div className='send'> <button className='button-30'> <p className='msgInput'>Send</p> </button></div>
 
-                      </form>
+                          </form>
 
-                    </div>
+
+                        </div> 
+                        
                   
 
                    </div>
@@ -201,11 +343,15 @@ console.log(id)
              
               
                
-
+                  
 
               </div>
+
+           
               
             </div>
+
+          
             
             
   

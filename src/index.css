@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'PT Mono', monospace;
 
 
   -webkit-font-smoothing: antialiased;
@@ -10,8 +10,8 @@ body {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'PT Mono', monospace;
+
 }
 
 div.container{
@@ -23,7 +23,10 @@ div.authContainer2{
 /* background: #000046;  
 background: -webkit-linear-gradient(to right, #1CB5E0, #000046) ;  
 background: linear-gradient(to right, #1CB5E0, #000046) ;  */
-background:url('./components/images/space.gif') no-repeat center center fixed;
+/* background:url('./components/images/space.gif') no-repeat center center fixed; */
+background: #457fca;  /* fallback for old browsers */
+
+
 background-size: cover;
 
 
@@ -44,9 +47,12 @@ input.user{
   left:10%;
   width:80%;
   height:10%;
-  border-radius:5px;
-  border:2px solid black;
+  
+  border:none;
+  border-bottom:2px solid black;
   padding:10px;
+  background-color: transparent;
+  
  
 }
 input.pass{
@@ -55,9 +61,10 @@ input.pass{
   left:10%;
   width:80%;
   height:10%;
-  border-radius:5px;
-  border:2px solid black;
+  border:none;
+  border-bottom:2px solid black;
   padding:10px;
+  background-color: transparent;
 }
 input.passConfirm{
   position: absolute;
@@ -69,24 +76,50 @@ input.passConfirm{
   border:2px solid black;
   padding:10px;
 }
-button.submit{
+/* button.submit{
   position: absolute;
   top:60%;
   left:20%;
   width:60%;
-  height:10%;
+  height:12%;
   border-radius:10px;
   border:2px solid black;
   font-family: 'Questrial', sans-serif;
-  color: orange;
+  color: black;
+  font-size:20px;
+  background-color:rgb(200, 138, 14) ;
  
+}
+button.submit:hover{
+  background: black;
+  color:white;
+  
+} */
+div.signOutBTN{
+  position: relative;
+  padding-top:20px;
+  height:150px;
+  width:550px;
+  left:-170%;
+  top:25%;
+  font-family: 'PT Mono', monospace;
+}
+div.signin{
+  position: relative;
+  top:55%;
+  left:32.5%;
+}
+div.signup{
+  position: relative;
+  top:55%;
+  left:32.5%;
 }
 h1.signUp{
   position: absolute;
   top:1%;
-  left:35%;
-  font-family: 'Questrial', sans-serif;
-  color: orange;
+  left:30%;
+  font-family: 'PT Mono', monospace;
+  color: black;
 
 }
 div.userError{
@@ -114,8 +147,7 @@ div.confirmError{
   top:52%;
 }
 .error-info{
-  position: absolute;
-  top:60%;
+  
   color:crimson;
 }
 
@@ -153,94 +185,136 @@ input.chat-input{
 }
 .info-head{
   position: relative;
-  color:orange;
+  color:white;
  
 }
 .email{
   position: relative;
-  color:orange;
+  color:white;
 }
-button.signOutButton{
-    border-radius:50px;
-    background-color: white;
-    width:100px;
-    height:30px;
-    color:orange;
-    
-    
-    
+div.editBTN{
+  position: relative;
+  left:10%;
+  top:-0%;
 }
-button.signOutButton:hover{
-  opacity: 60%;
-}
-div.signOutButton{
-  position:absolute;
-  left:40%;
-  top:200;
-  z-index: 1;
-  
-}
-.textDisplay{
- color:black;
-  width:1000px;
-  height:50px;
+
+.button-30 {
+  align-items: center;
+  appearance: none;
+  background-color: #FCFCFD;
+  border-radius: 4px;
+  border-width: 0;
+  box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3px,#D6D6E7 0 -3px 0 inset;
+  box-sizing: border-box;
+  color: #36395A;
+  cursor: pointer;
+  display: inline-flex;
+  height: 48px;
+  justify-content: center;
+  line-height: 1;
+  list-style: none;
+  overflow: hidden;
+  padding-left: 16px;
+  padding-right: 16px;
+  position: relative;
   text-align: left;
-  padding-left:20px;
-  padding-top:20px;
-  
-  
-  
+  text-decoration: none;
+  transition: box-shadow .15s,transform .15s;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  will-change: box-shadow,transform;
+  font-size: 18px;
+  font-family: 'PT Mono', monospace;
 }
+
+.button-30:focus {
+  box-shadow: #D6D6E7 0 0 0 1.5px inset, rgba(45, 35, 66, 0.4) 0 2px 4px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+}
+
+.button-30:hover {
+  box-shadow: rgba(45, 35, 66, 0.4) 0 4px 8px, rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #D6D6E7 0 -3px 0 inset;
+  transform: translateY(-2px);
+}
+
+.button-30:active {
+  box-shadow: #D6D6E7 0 3px 7px inset;
+  transform: translateY(2px);
+}
+
+
+
+
+
+
 
 div.msgInput{
   position:absolute;
-  top:100%;
-  left:15%;
+  height:500px;
+  top:20%;
+  left:-50%;
+  /* background-color:rgb(248, 131, 121) ; */
+  background-color: transparent;
+  border-radius:10px;
+}
+div.send{
+  position: relative;
+  top:20px;
+}
+::placeholder{
+  color: white;
+  font-family: 'PT Mono', monospace;
+  
 }
 input.msgInput{
   text-align: left;
+  margin: 10px;
   padding-left:20px;
   width:400px;
-  border-radius: 10px;
-  border:2px solid black;
+
+  border:none;
+   border-bottom:2px solid black; 
+  background-color: transparent;
+  color:white;
   top:60px;
   left:100px;
-  box-shadow: 8px 8px 8px;
-  background-color: orange;
+  
+  
+}
+input.msgInput:focus{
+  outline: none;
 }
 button.msgInput{
  position: relative;
+ top:100%;
+ left:5%;
  width:100px;
- border-radius: 10px;
- box-shadow: 8px 8px 8px;
- background-color: orange;
+ border-radius: 20px;
+ border:1px solid black;
+ background-color: white;
+
+
 }
 button.msgInput:hover{
   border:1px solid white;
 }
 p.msgInput{
   height: 10px;
+  
 }
 p.msgInput:hover{
   color: white;
   
 }
-.infoHead{
-  position: absolute;
-  left:40%;
-}
+
 .users_info{
   position:absolute;
-  left:10%;
+  left:-50px;
   top:-100px;
   height:150px;
-  width:60%;
-  border-radius: 10px;
-  box-shadow: 8px 8px 8px 8px;
-  padding:20px;
-  font-family: 'Questrial', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  width:300px;
+
 }
 
 ::-webkit-scrollbar{
@@ -294,7 +368,7 @@ img.delIcon{
   max-width:500px;
   padding-top:140px;
   padding-left:80px;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'PT Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-size:xx-large;
@@ -304,7 +378,7 @@ img.delIcon{
   position: absolute;
   bottom:100%;
   right:0px;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'PT Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   border-radius: 10px;
@@ -316,16 +390,17 @@ h1.title-1{
   color:orange;
 }
 div.deleteButton{
-  position:absolute;
-  right:10px;
+  position:relative;
+  right:-70%;
   font-size:small;
 
 
  
 }
+
 div.buttonContainer{
   position:absolute;
-  left:0px;
+  left:25px;
   height:40px;
   width:100px;
   
@@ -333,15 +408,14 @@ div.buttonContainer{
 }
 div.mt2{
   position:absolute;
-  top:15%;
-  left:-10%;
+  top:-10%;
   overflow: auto;
-  height:500px;
+  height:800px;
   width:1000px;
   min-height: 300px;
-  border-radius: 20px;
-  border:2px solid orange;
-  background-color: rgba(0, 0, 0, 0.9);
+  border-left:2px solid black;
+  background-color: transparent;
+
   
 }
 
@@ -356,17 +430,24 @@ div.mt2{
    
    
  }
- .buttonmsg1{
+ .msg{
   position: absolute;
-  left:60px;
-  top:5px;
+  left:80px;
+  top:15px;
+  padding-left:10px;
   width:800px;
-  color:orange;
+  color:black;
+  font-family: 'PT Mono', monospace;
+  font-size:medium;
+  background-color: white;
+  border-left:2px solid black;
+  border-radius:10px;
+  box-shadow: 2px 2px 2px 2px;
  }
  div.signUpPrompt{
-  position:absolute;
-  left:40px;
-  top:20px;
+  position: absolute;
+  top:55%;
+  left:42.5%;
   width:300px;
   height:60px;
   background-color: transparent;
@@ -374,11 +455,26 @@ div.mt2{
   padding-top:10px;
   padding-left:20px;
   box-shadow:2px 2px 2px 2px;
+  border: 2px solid black;
+  
+ }
+ div.signInPrompt{
+  position: absolute;
+  top:75%;
+  left:12%;
+  width:300px;
+  height:60px;
+  background-color: transparent;
+  border-radius: 10px;
+  padding-top:10px;
+  padding-left:20px;
+  box-shadow:2px 2px 2px 2px;
+  border: 2px solid black;
   
  }
  h1.signUpPrompt{
   font-size:small;
-  color:orange;
+  color:black;
 }
 button.signUpPrompt{
   border-radius: 5px;
@@ -388,29 +484,61 @@ button.signUpPrompt{
 div.title-n{
   position: absolute;
   left:40%;
-  top:10%;
-  font-family: 'Questrial', sans-serif;
+ 
+  font-family: 'PT Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color:orange;
+  color:black;
  
 }
+div.lines{
+  position: absolute;
+  width:100%;
+  top:10%;
+  left:1%;
+}
+#modal-1{
+  position: relative;
+  padding-top:10%;
+  width:500px;
+  height:300px;
+  background: #457fca; 
+  box-shadow: 5px 5px 5px 5px;
+  position: absolute;
+  left:25%;
+  border:2px solid black;
+  display: none; 
+  z-index: 1;
+  border-radius: 10px;
+ 
+  
+
+}
+.updateBTN{
+  position: relative;
+  top:10%;
+}
+#overlay{
+  position: absolute;
+  top:-10%;
+  background-color: black;
+  opacity:70%;
+  height:800px;
+  width:1000px;
+  display: none;
+
+}
+
+
 @media (max-width:1900px){
-  div.mt2{
-    position:absolute;
-    top:10%;
-    overflow: auto;
-    height:500px;
-    width:800px;
-    
-  }
-  div.users_info{
-    left:-1%;
-  }
+ 
   div.msgInput{
-    position:absolute;
+     
     
-    left:5%;
+    left:-35%; 
+  }
+  input.msgInput{
+    width:300px;
   }
   .title{
     position: absolute;
@@ -419,35 +547,70 @@ div.title-n{
    
     
   }
+  div.signOutBTN{
+    left:-150%;
+  }
+  
+  
 }
 @media (max-width:1000px) and (min-width:600px){
-  div.mt2{
-    width:400px;
-  }
-  div.users_info{
-    width:400px;
-    position: relative;
-    left:-100px;
-  }
+ 
+
   div.msgInput{
     position: absolute;
-    left:-120px;
+    left:10%;
     top:600px;
 
   }
+  div.mt2{
+    width:500px;
+    height:500px;
+  }
+  .users_info{
+    left:17%;
+    top:22.5%;
+    width:300px;
+
+ 
+  }
+  div.signOutBTN{
+    top:200%;
+    left:-60%;
+ 
+  }
+  div.signUpPrompt{
+    position:absolute;
+    left:50px;
+    top:20px;
+    width:100px;
+    height:50px;
+    
+   }
+
 }
 @media (max-width:600px){
-  div.mt2{
-    width:300px;
-  }
-  div.users_info{
-    width:300px;
+  .users_info{
     position: relative;
-    left:-100px;
+    left:-35.5%;
+    top:57%;
+    width:300px;
+ 
   }
+  div.signOutBTN{
+    
+    left:100%;
+ 
+  }
+
+
+  div.mt2{
+    width:500px;
+    height:500px;
+  }
+
   div.msgInput{
     position: absolute;
-    left:-100px;
+    left:100px;
     top:600px;
 
   }
@@ -455,7 +618,7 @@ div.title-n{
     position: absolute;
     bottom:100%;
     left:25%;
-    font-family: 'Questrial', sans-serif;
+    font-family: 'PT Mono', monospace;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: white;
@@ -464,7 +627,7 @@ div.title-n{
     box-shadow: 4px 4px 4px 4px;
     padding:20px;
   }
-  button.signOutButton{
+  button.BTN{
     border:1px solid black;
     border-radius:50px;
     background-color: white;
@@ -478,8 +641,14 @@ div.signUpPrompt{
   position:absolute;
   left:50px;
   top:20px;
-  width:300px;
+  width:100px;
   height:50px;
+  
+ }
+ div.signInPrompt{
+  
+  width:200px;
+ 
   
  }
 input.msgInput{
@@ -494,11 +663,12 @@ button.msgInput{
   position: absolute;
   left:15%;
   top:13%;
-  font-family: 'Questrial', sans-serif;
+  font-family: 'PT Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
  
 }
+
 }
 div.userNotice{
     position:absolute;
